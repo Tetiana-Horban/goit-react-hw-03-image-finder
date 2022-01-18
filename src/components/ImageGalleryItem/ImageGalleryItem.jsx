@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   ImageGalleryItemWrapper,
   ImageGalleryImg,
@@ -11,7 +12,7 @@ const ImageGalleryItem = ({
   largeImage,
 }) => {
   return (
-    <ImageGalleryItemWrapper className="gallery-item" key={id}>
+    <ImageGalleryItemWrapper key={id}>
       <ImageGalleryImg
         src={webformatURL}
         alt={tags}
@@ -22,5 +23,11 @@ const ImageGalleryItem = ({
     </ImageGalleryItemWrapper>
   );
 };
-
+ImageGalleryItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  tags: PropTypes.string.isRequired,
+  webformatURL: PropTypes.string.isRequired,
+  openModal: PropTypes.func.isRequired,
+  largeImage: PropTypes.string.isRequired,
+};
 export default ImageGalleryItem;
