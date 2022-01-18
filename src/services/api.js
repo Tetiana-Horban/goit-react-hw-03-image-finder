@@ -7,7 +7,7 @@ const fetchHits = (name, page) => {
       if (response.ok) {
         return response.json();
       }
-      return Promise.reject(new Error('Ничего не найдено'));
+      return Promise.reject(new Error('Nothing found'));
     },
   );
 };
