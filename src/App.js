@@ -48,6 +48,7 @@ class App extends Component {
           images: [...prevState.images, ...hits.hits],
           status: 'resolved',
         }));
+        this.scrollToButton();
       })
       .catch(error => this.setState({ error, status: 'rejected' }));
   };
@@ -55,6 +56,12 @@ class App extends Component {
     this.setState(prevState => ({
       page: prevState.page + 1,
     }));
+  };
+  scrollToButton = () => {
+    window.scrollBy({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    });
   };
   render() {
     const { images, showModal, largeImage, status, error, seachImage } =
